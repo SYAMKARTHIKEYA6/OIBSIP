@@ -1,0 +1,17 @@
+import random
+import string
+
+def generate_password(length=12):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(chars) for _ in range(length))
+    return password
+
+if __name__ == "__main__":
+    try:
+        length = int(input("Enter password length: "))
+        if length < 6:
+            print("Password length should be at least 6 characters.")
+        else:
+            print("Generated password:", generate_password(length))
+    except ValueError:
+        print("Please enter a valid number.")
